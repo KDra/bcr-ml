@@ -30,5 +30,6 @@ RUN pip --no-cache-dir install \
     tensorboard \
     tensorflow
 RUN pip --no-cache-dir install \
-    gradio
+    gradio \
+    pyarrow
 CMD ['python', '--version']
