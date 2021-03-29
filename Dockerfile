@@ -17,7 +17,7 @@ RUN pip --no-cache-dir install \
     convertdate \
     holidays \
     lunarcalendar \
-    pystan \
+    pystan==2.19.1.1 \
     mdmail \
     hyperopt
 RUN apt-get update && \
