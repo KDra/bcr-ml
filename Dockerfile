@@ -12,6 +12,7 @@ RUN pip --no-cache-dir install \
     great_expectations \
     numba \
     plotly \
+    catboost \
     xgboost \
     convertdate \
     holidays \
