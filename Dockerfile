@@ -5,7 +5,13 @@ RUN pip --no-cache-dir install \
     scipy \
     dagster \
     dagster_postgres \
+    dagster_pandas \
+    dagit \
     sqlalchemy \
+    cx-Oracle \
+    great_expectations \
+    numba \
+    plotly \
     xgboost \
     convertdate \
     holidays \
