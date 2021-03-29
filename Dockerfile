@@ -32,4 +32,8 @@ RUN pip --no-cache-dir install \
 RUN pip --no-cache-dir install \
     gradio \
     pyarrow
+WORKDIR /opt/
+RUN wget https://download.oracle.com/otn_software/linux/instantclient/211000/instantclient-basic-linux.x64-21.1.0.0.0.zip
+RUN unzip instantclient-basic-linux.x64-21.1.0.0.0.zip
+ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 CMD ['python', '--version']
