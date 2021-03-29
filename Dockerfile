@@ -21,7 +21,12 @@ RUN pip --no-cache-dir install \
     mdmail \
     hyperopt
 RUN apt-get update && \
-    apt-get install g++ -y && \
+    apt-get install g++ python3-dev python3-pip python3-venv -y && \
     rm -rf /var/lib/apt/lists/
 RUN pip --no-cache-dir install fbprophet
+RUN pip --no-cache-dir install \
+    dash==1.19.0 \
+    tensorflow-probability \
+    tensorboard \
+    tensorflow
 CMD ['python', '--version']
