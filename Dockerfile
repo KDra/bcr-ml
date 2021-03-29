@@ -21,7 +21,7 @@ RUN pip --no-cache-dir install \
     mdmail \
     hyperopt
 RUN apt-get update && \
-    apt-get install g++ python3-dev python3-pip python3-venv -y && \
+    apt-get install g++ -y && \
     rm -rf /var/lib/apt/lists/
 RUN pip --no-cache-dir install fbprophet
 RUN pip --no-cache-dir install \
@@ -29,4 +29,6 @@ RUN pip --no-cache-dir install \
     tensorflow-probability \
     tensorboard \
     tensorflow
+RUN pip --no-cache-dir install \
+    gradio
 CMD ['python', '--version']
