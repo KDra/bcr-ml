@@ -1,6 +1,6 @@
 FROM python:3.8-slim
 RUN apt-get update && \
-    apt-get install g++ unzip libaio1 zlib1g libsnappy wget -y && \
+    apt-get install g++ unzip libaio1 zlib1g libsnappy-dev wget -y && \
     rm -rf /var/lib/apt/lists/
 RUN pip --no-cache-dir install \
     pandas \
