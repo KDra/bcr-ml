@@ -40,8 +40,7 @@ RUN pip --no-cache-dir install \
     tensorboard \
     tensorflow
 WORKDIR /tmp/
-RUN wget https://github.com/scikit-learn-contrib/polylearn/archive/master.zip
-RUN unzip polylearn-master.zip
+RUN wget -O polylearn-master.zip https://github.com/scikit-learn-contrib/polylearn/archive/master.zip && unzip polylearn-master.zip
 WORKDIR /tmp/polylearn-master
 RUN python setup.py build && python setup.py install
 WORKDIR /opt/
