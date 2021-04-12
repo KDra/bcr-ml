@@ -26,19 +26,19 @@ RUN pip --no-cache-dir install \
     gradio \
     pyarrow \
     hyperopt
-RUN pip --no-cache-dir install fbprophet
-RUN pip --no-cache-dir install \
-    imbalanced-learn \
-    deslib \
-    scikit-learn-extra \
-    sklearn-pandas \
-    Boruta==0.3 \
-    forestci \
-    category_encoders \
-    sklearn-contrib-lightning \
-    tensorflow-probability \
-    tensorboard \
-    tensorflow
+RUN pip --no-cache-dir install prophet
+# RUN pip --no-cache-dir install \
+#     imbalanced-learn \
+#     deslib \
+#     scikit-learn-extra \
+#     sklearn-pandas \
+#     Boruta==0.3 \
+#     forestci \
+#     category_encoders \
+#     sklearn-contrib-lightning \
+#     tensorflow-probability \
+#     tensorboard \
+#     tensorflow
 WORKDIR /tmp/
 RUN wget -O polylearn-master.zip https://github.com/scikit-learn-contrib/polylearn/archive/master.zip && unzip polylearn-master.zip
 WORKDIR /tmp/polylearn-master
