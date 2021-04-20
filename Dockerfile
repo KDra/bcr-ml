@@ -25,7 +25,8 @@ RUN pip --no-cache-dir install \
     mdmail \
     gradio \
     pyarrow \
-    hyperopt
+    hyperopt \
+    streamlit
 RUN pip --no-cache-dir install prophet
 # RUN pip --no-cache-dir install \
 #     imbalanced-learn \
