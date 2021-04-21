@@ -1,6 +1,6 @@
 FROM python:3.8-slim
 RUN apt-get update && \
-    apt-get install g++ unzip libaio1 zlib1g libsnappy-dev wget libpq-dev -y && \
+    apt-get install git g++ unzip libaio1 zlib1g libsnappy-dev wget libpq-dev -y && \
     rm -rf /var/lib/apt/lists/
 WORKDIR /opt/
 RUN wget https://download.oracle.com/otn_software/linux/instantclient/211000/instantclient-basic-linux.x64-21.1.0.0.0.zip
