@@ -54,4 +54,5 @@ RUN ldconfig
 RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/share/locale/ /usr/local/share/doc/ /usr/local/share/man/
 WORKDIR /root/.streamlit
 COPY streamlit_config.toml config.toml
+WORKDIR /root/
 CMD ['python', '--version']
