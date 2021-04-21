@@ -1,4 +1,4 @@
-global]
+[global]
 
 # By default, Streamlit checks if the Python watchdog module is available and, if not, prints a warning asking for you to install it. The watchdog module is not required, but highly recommended. It improves Streamlit's ability to detect changes to files in your filesystem.
 # If you'd like to turn off this warning, set this to True.
@@ -130,15 +130,6 @@ token = ""
 # Set to false to disable the deprecation warning for the file uploader encoding.
 # Default: "True"
 showfileUploaderEncoding = "True"
-
-# Set to false to disable the deprecation warning for the image format parameter.
-# Default: "True"
-#
-# DEPRECATED.
-# The format parameter for st.image has been removed.
-# This option will be removed on or after 2021-03-24.
-#
-showImageFormat = "True"
 
 # Set to false to disable the deprecation warning for using the global pyplot instance.
 # Default: "True"
