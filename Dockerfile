@@ -21,12 +21,14 @@ RUN pip --no-cache-dir install \
     holidays \
     lunarcalendar \
     pystan==2.19.1.1 \
-    dash==1.19.0 \
+    dash \
     mdmail \
     gradio \
     pyarrow \
     hyperopt \
-    streamlit
+    streamlit \
+    jupyterlab \
+    jupyter-dash
 RUN pip --no-cache-dir install prophet
 RUN pip --no-cache-dir install \
     imbalanced-learn \
@@ -50,5 +52,6 @@ RUN unzip instantclient-basic-linux.x64-21.1.0.0.0.zip && rm instantclient-basic
 ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 RUN ldconfig
 RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/share/locale/ /usr/local/share/doc/ /usr/local/share/man/
-WORKDIR /
+WORKDIR /root/.streamlit
+COPY streamlit_config.toml config.toml
 CMD ['python', '--version']
