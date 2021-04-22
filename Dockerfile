@@ -1,4 +1,4 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
 RUN apt-get update && \
     apt-get install g++ unzip libaio1 zlib1g libsnappy-dev wget libpq-dev -y && \
     rm -rf /var/lib/apt/lists/
@@ -27,8 +27,8 @@ RUN pip --no-cache-dir install \
     lunarcalendar \
     pystan==2.19.1.1 \
     dash \
-#     mdmail \
-#     gradio \
+    mdmail \
+    gradio \
     pyarrow \
     hyperopt \
     streamlit \
@@ -52,7 +52,7 @@ RUN pip --no-cache-dir install dagit
 # RUN wget -O polylearn-master.zip https://github.com/scikit-learn-contrib/polylearn/archive/master.zip && unzip polylearn-master.zip
 # WORKDIR /tmp/polylearn-master
 # RUN python setup.py build && python setup.py install
-RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/share/locale/ /usr/local/share/doc/ /usr/local/share/man/
+RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/share/locale/ /usr/local/share/doc/ /usr/local/share/man/ /usr/local/share/locale/
 WORKDIR /root/.streamlit
 COPY streamlit_config.toml config.toml
 WORKDIR /root/
