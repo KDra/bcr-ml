@@ -18,9 +18,7 @@ RUN pip --no-cache-dir install \
     cx_Oracle \
     sqlalchemy \
     great_expectations \
-    numba \
     plotly \
-    catboost \
     xgboost \
     convertdate \
     holidays \
@@ -31,9 +29,7 @@ RUN pip --no-cache-dir install \
     gradio \
     pyarrow \
     hyperopt \
-    streamlit \
-    jupyterlab \
-    jupyter-dash
+    streamlit
 RUN pip --no-cache-dir install prophet
 RUN pip --no-cache-dir install dagit
 # RUN pip --no-cache-dir install \
