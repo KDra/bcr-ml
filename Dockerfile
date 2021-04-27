@@ -32,7 +32,11 @@ RUN pip --no-cache-dir install \
     hyperopt \
     streamlit
 RUN pip --no-cache-dir install prophet
-RUN pip --no-cache-dir install dagit
+RUN pip --no-cache-dir install \
+    dagit==0.11.3 \
+    dagster==0.11.3 \
+    dagster_postgres==0.11.3 \
+    dagster_pandas==0.11.3
 # RUN pip --no-cache-dir install \
 #     imbalanced-learn \
 #     deslib \
