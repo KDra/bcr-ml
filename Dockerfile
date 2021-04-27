@@ -8,6 +8,7 @@ RUN unzip instantclient-basic-linux.x64-21.1.0.0.0.zip && rm instantclient-basic
 ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 RUN ldconfig
 RUN pip --no-cache-dir install \
+    xlrd \
     pandas \
     scikit-learn \
     scipy \
