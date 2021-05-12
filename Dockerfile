@@ -7,6 +7,8 @@ RUN wget https://download.oracle.com/otn_software/linux/instantclient/211000/ins
 RUN unzip instantclient-basic-linux.x64-21.1.0.0.0.zip && rm instantclient-basic-linux.x64-21.1.0.0.0.zip
 ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 RUN ldconfig
+RUN wget https://github.com/stan-dev/cmdstan/releases/download/v2.26.1/cmdstan-2.26.1.tar.gz
+RUN tar xvf cmdstan-2.26.1.tar.gz && rm cmdstan-2.26.1.tar.gz
 RUN pip --no-cache-dir install \
     xlrd \
     pandas \
@@ -24,13 +26,15 @@ RUN pip --no-cache-dir install \
     convertdate \
     holidays \
     lunarcalendar \
-    pystan==2.19.1.1 \
+#     pystan==2.19.1.1 \
     dash \
     mdmail \
     gradio \
     pyarrow \
     hyperopt \
     streamlit
+ENV STAN_BACKEND=CMDSTANPY
+ENV CMDSTAN=/opt/cmdstan-2.26.1
 RUN pip --no-cache-dir install prophet
 RUN pip --no-cache-dir install \
     dagit==0.11.3 \
