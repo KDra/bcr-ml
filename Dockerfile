@@ -1,4 +1,5 @@
 FROM python:3.8-slim
+SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     apt-get install build-essential unzip libaio1 zlib1g libsnappy-dev wget libpq-dev nano iputils-ping -y && \
     rm -rf /var/lib/apt/lists/
@@ -17,7 +18,7 @@ RUN pip --no-cache-dir install \
     scikit-learn \
     scipy \
     psycopg2 \
-    cx_Oracle \
+    cx_Oracle==8.2.0 \
     sqlalchemy \
     plotly \
     xgboost \
@@ -29,16 +30,15 @@ RUN pip --no-cache-dir install \
     streamlit
 RUN pip --no-cache-dir install cmdstanpy[all]
 RUN install_cmdstan -d /opt/
-SHELL ["/bin/bash", "-c"]
 RUN files=(/opt/cmdstan*); ln -s ${files[0]} /opt/cmdstanpy
 ENV CMDSTAN=/opt/cmdstanpy
 ENV STAN_BACKEND=CMDSTANPY
 RUN pip --no-cache-dir install prophet
 RUN pip --no-cache-dir install \
-    dagit==0.11.3 \
-    dagster==0.11.3 \
-    dagster_postgres==0.11.3 \
-    dagster_pandas==0.11.3
+    dagit==0.11.9 \
+    dagster==0.11.9 \
+    dagster_postgres==0.11.9 \
+    dagster_pandas==0.11.9
 # RUN pip --no-cache-dir install \
 #     imbalanced-learn \
 #     deslib \
@@ -55,4 +55,3 @@ RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/s
 WORKDIR /root/.streamlit
 COPY streamlit_config.toml config.toml
 WORKDIR /root/
-CMD ['python', '--version']
