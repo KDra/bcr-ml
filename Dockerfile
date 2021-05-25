@@ -14,6 +14,7 @@ RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/s
 ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 RUN ldconfig
 RUN pip --no-cache-dir install \
+    lightgbm \
     lxml \
     xlrd \
     pandas \
