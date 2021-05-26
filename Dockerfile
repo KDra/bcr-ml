@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
-    apt-get install build-essential unzip libaio1 zlib1g libsnappy-dev wget libpq-dev nano iputils-ping git -y && \
+    apt-get install build-essential unzip libaio1 zlib1g libsnappy-dev wget libpq-dev nano iputils-ping git rsync -y && \
     rm -rf /var/lib/apt/lists/
 WORKDIR /opt/
 RUN wget https://download.oracle.com/otn_software/linux/instantclient/211000/instantclient-basic-linux.x64-21.1.0.0.0.zip
