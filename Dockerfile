@@ -14,6 +14,7 @@ RUN rm -rf /tmp/* /var/cache/apt/archives /usr/share/doc/ /usr/share/man/ /usr/s
 ENV LD_LIBRARY_PATH=/opt/instantclient_21_1/:$LD_LIBRARY_PATH
 RUN ldconfig
 RUN pip --no-cache-dir install \
+    openpyxl \
     lightgbm \
     lxml \
     xlrd \
@@ -31,11 +32,11 @@ RUN pip --no-cache-dir install \
     pyarrow \
     hyperopt \
     streamlit
-RUN pip --no-cache-dir install cmdstanpy[all]
-RUN install_cmdstan -d /opt/
-RUN files=(/opt/cmdstan*); ln -s ${files[0]} /opt/cmdstanpy
-ENV CMDSTAN=/opt/cmdstanpy
-ENV STAN_BACKEND=CMDSTANPY
+# RUN pip --no-cache-dir install cmdstanpy[all]
+# RUN install_cmdstan -d /opt/
+# RUN files=(/opt/cmdstan*); ln -s ${files[0]} /opt/cmdstanpy
+# ENV CMDSTAN=/opt/cmdstanpy
+# ENV STAN_BACKEND=CMDSTANPY
 RUN pip --no-cache-dir install prophet
 RUN pip --no-cache-dir install \
     dagit==0.11.9 \
